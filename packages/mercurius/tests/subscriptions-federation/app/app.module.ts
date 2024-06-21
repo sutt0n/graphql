@@ -22,7 +22,7 @@ export class AppModule {
         GraphQLModule.forRoot<MercuriusFederationDriverConfig>({
           driver: MercuriusFederationDriver,
           context: options?.context,
-          autoSchemaFile: true,
+          autoSchemaFile: { federation: 2 },
           subscription: options?.subscription,
         }),
       ],

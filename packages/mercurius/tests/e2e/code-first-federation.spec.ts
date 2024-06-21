@@ -60,15 +60,7 @@ describe('Code-first - Federation', () => {
 
     expect(response.data).toEqual({
       _service: {
-        sdl: `directive @shareable on FIELD_DEFINITION | OBJECT
-
-directive @link(url: String!, import: [link__Import]) on SCHEMA
-
-directive @inaccessible on FIELD_DEFINITION | OBJECT | INTERFACE | UNION | ARGUMENT_DEFINITION | SCALAR | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
-
-directive @override(from: String!) on FIELD_DEFINITION
-
-type Post
+        sdl: `type Post
   @key(fields: \"id\")
 {
   id: ID!
@@ -109,7 +101,7 @@ scalar link__Import`,
           recipe {
             id
             title
-            ...on Recipe {
+            ... on Recipe {
               description
             }
           }

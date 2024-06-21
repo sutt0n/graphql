@@ -16,7 +16,7 @@ import { UserModule } from './user/user.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloFederationDriver,
       includeStacktraceInErrorResponses: false,
-      autoSchemaFile: true,
+      autoSchemaFile: { federation: 2 },
       buildSchemaOptions: {
         orphanedTypes: [User],
       },

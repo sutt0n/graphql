@@ -16,7 +16,6 @@ export class TypeDefsFederation2Decorator {
         '@provides',
         '@requires',
         '@shareable',
-        '@tag',
       ],
       importUrl = 'https://specs.apollo.dev/federation/v2.3',
     } = config;

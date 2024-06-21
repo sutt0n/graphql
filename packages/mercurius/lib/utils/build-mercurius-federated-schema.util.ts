@@ -11,6 +11,15 @@ export function buildMercuriusFederatedSchema({
     'MercuriusFederation',
     () => require('@apollo/subgraph'),
   );
+
+  // @ts-ignore
+  typeDefs.definitions = typeDefs.definitions.filter(
+    (definition) =>
+      definition?.kind !== 'DirectiveDefinition' &&
+      // @ts-ignore
+      definition?.name?.value !== 'tag',
+  );
+
   let executableSchema: GraphQLSchema = buildSubgraphSchema({
     typeDefs,
     resolvers,
